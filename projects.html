@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the portfolio projects, case studies, and code repositories of [Your Name].">
-    <title>Projects | [Your Name]</title>
+    <meta name="description" content="Explore the academic and personal IT projects built by Johnny T. Abello Jr., a 2nd-Year BSIT student.">
+    <title>Projects | Johnny T. Abello Jr.</title>
     <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,7 +13,7 @@
     <!-- Header & Navigation -->
     <header>
         <div class="logo">
-            <a href="index.html">[Your Name]</a>
+            <a href="index.html">AJ</a>
         </div>
         <nav aria-label="Main Navigation">
             <ul>
@@ -33,8 +33,8 @@
         <section id="projects-intro">
             <h1>Projects</h1>
             <p>
-                [A brief introduction to the work you've built—personal projects, 
-                client work, or open-source contributions.]
+                A collection of web designs, programming exercises, and academic systems
+                I have built throughout my first and second years as a BSIT student.
             </p>
 
             <!-- Optional Filter Controls (ready for JavaScript later) -->
@@ -42,7 +42,7 @@
                 <button type="button" data-filter="all">All</button>
                 <button type="button" data-filter="web">Web Apps</button>
                 <button type="button" data-filter="design">UI / Design</button>
-                <button type="button" data-filter="other">Other</button>
+                <button type="button" data-filter="other">Programming / SQL</button>
             </div>
         </section>
 
@@ -51,21 +51,22 @@
             <h2>Featured Project</h2>
 
             <article class="project-featured" data-category="web">
-                <img src="assets/featured-project.jpg" alt="Preview of [Featured Project Title]">
+                <img src="assets/featured-project.jpg" alt="Preview of Student Study Planner Web App">
                 <div class="project-details">
-                    <p><strong>Category:</strong> [Web App] &mdash; <time datetime="2026">2026</time></p>
-                    <h3>[Featured Project Title]</h3>
+                    <p><strong>Category:</strong> Web App &mdash; <time datetime="2026">2026</time></p>
+                    <h3>BSIT Student Study &amp; Assignment Planner</h3>
                     <p>
-                        [Describe the problem the project solves, your role, and the 
-                        outcome or impact.]
+                        Built to help college students organize subject deadlines, lab activities,
+                        and exam schedules in one clean interface. Features task filtering, priority
+                        tags, and persistent browser storage without needing a backend server.
                     </p>
 
                     <h4>Technologies Used</h4>
                     <ul aria-label="Technologies used in Featured Project">
                         <li>HTML5</li>
-                        <li>CSS3</li>
+                        <li>CSS3 (Grid &amp; Flexbox)</li>
                         <li>JavaScript</li>
-                        <li>[Framework / API]</li>
+                        <li>LocalStorage API</li>
                     </ul>
 
                     <div class="project-links">
@@ -80,15 +81,15 @@
         <section id="all-projects">
             <h2>All Projects</h2>
 
-            <article class="project-card" data-category="web">
-                <img src="assets/project-1.jpg" alt="Screenshot of [Project Title 1]">
-                <p><span>[Category]</span> &mdash; <time datetime="2026">2026</time></p>
-                <h3>[Project Title 1]</h3>
-                <p>[Brief description of what the project does and key features built.]</p>
+            <article class="project-card" data-category="other">
+                <img src="assets/project-1.jpg" alt="Screenshot of Student Record &amp; Grade Management System">
+                <p><span>Programming / SQL</span> &mdash; <time datetime="2026">2026</time></p>
+                <h3>Student Record &amp; Grade System</h3>
+                <p>A 2nd-year academic project implementing Object-Oriented Programming and a normalized MySQL database to add, search, and update student grades.</p>
                 <ul aria-label="Technologies used">
-                    <li>[Tech 1]</li>
-                    <li>[Tech 2]</li>
-                    <li>[Tech 3]</li>
+                    <li>Java / PHP</li>
+                    <li>MySQL</li>
+                    <li>OOP</li>
                 </ul>
                 <div class="project-links">
                     <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
@@ -97,14 +98,14 @@
             </article>
 
             <article class="project-card" data-category="design">
-                <img src="assets/project-2.jpg" alt="Screenshot of [Project Title 2]">
-                <p><span>[Category]</span> &mdash; <time datetime="2025">2025</time></p>
-                <h3>[Project Title 2]</h3>
-                <p>[Brief description of what the project does and key features built.]</p>
+                <img src="assets/project-2.jpg" alt="Screenshot of Campus Cafeteria Ordering UI">
+                <p><span>UI / Design</span> &mdash; <time datetime="2026">2026</time></p>
+                <h3>Campus Cafeteria Menu &amp; Ordering UI</h3>
+                <p>A mobile-first front-end prototype designed for faster student lunch ordering, featuring category tabs and a clean menu layout.</p>
                 <ul aria-label="Technologies used">
-                    <li>[Tech 1]</li>
-                    <li>[Tech 2]</li>
-                    <li>[Tech 3]</li>
+                    <li>Figma</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
                 </ul>
                 <div class="project-links">
                     <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
@@ -112,15 +113,15 @@
                 </div>
             </article>
 
-            <article class="project-card" data-category="other">
-                <img src="assets/project-3.jpg" alt="Screenshot of [Project Title 3]">
-                <p><span>[Category]</span> &mdash; <time datetime="2025">2025</time></p>
-                <h3>[Project Title 3]</h3>
-                <p>[Brief description of what the project does and key features built.]</p>
+            <article class="project-card" data-category="web">
+                <img src="assets/project-3.jpg" alt="Screenshot of Simple Library Inventory System">
+                <p><span>Web App</span> &mdash; <time datetime="2025">2025</time></p>
+                <h3>Personal Book &amp; Notes Catalog</h3>
+                <p>A 1st-year foundational project created to practice semantic HTML structure, responsive CSS cards, and clean typography.</p>
                 <ul aria-label="Technologies used">
-                    <li>[Tech 1]</li>
-                    <li>[Tech 2]</li>
-                    <li>[Tech 3]</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>Git &amp; GitHub</li>
                 </ul>
                 <div class="project-links">
                     <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
@@ -131,8 +132,8 @@
 
         <!-- Call to Action Section -->
         <section id="projects-cta">
-            <h2>Have a project in mind?</h2>
-            <p>[Invite visitors to check out more code on GitHub or get in touch to work together.]</p>
+            <h2>Want to collaborate on a project?</h2>
+            <p>View more of my practice repositories on GitHub or reach out to build something together.</p>
             <a href="#" target="_blank" rel="noopener noreferrer">View More on GitHub</a>
             <a href="contact.html">Contact Me</a>
         </section>
@@ -144,9 +145,9 @@
         <ul aria-label="Social Links">
             <li><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="mailto:youremail@example.com">Email</a></li>
+            <li><a href="mailto:johnny.abello@example.com">Email</a></li>
         </ul>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2026 Johnny T. Abello Jr. All rights reserved.</p>
     </footer>
 
     <!-- Link to external JavaScript -->
