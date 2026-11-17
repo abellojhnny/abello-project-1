@@ -2,20 +2,21 @@
    1. CSS Variables & Base Reset
    ========================================= */
 :root {
-    --bg-main: #f8fafc;
-    --bg-surface: #ffffff;
-    --bg-subtle: #f1f5f9;
-    --text-main: #0f172a;
-    --text-muted: #475569;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --accent-soft: #dbeafe;
-    --border: #e2e8f0;
-    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
-    --shadow-md: 0 12px 28px -6px rgba(15, 23, 42, 0.1);
-    --radius: 12px;
-    --max-width: 1000px;
-    --transition: 0.2s ease;
+    --bg-main: #09090b;
+    --bg-surface: #121215;
+    --bg-subtle: #1c1c21;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --accent: #dc2626;
+    --accent-bright: #ef4444;
+    --accent-soft: rgba(220, 38, 38, 0.15);
+    --accent-glow: rgba(220, 38, 38, 0.28);
+    --border: #27272a;
+    --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.45);
+    --shadow-md: 0 20px 45px -12px rgba(0, 0, 0, 0.75);
+    --radius: 14px;
+    --max-width: 1040px;
+    --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,
@@ -28,6 +29,12 @@
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+::selection {
+    background-color: var(--accent);
+    color: #ffffff;
 }
 
 body {
@@ -46,14 +53,14 @@ img {
 }
 
 a {
-    color: var(--accent);
+    color: var(--accent-bright);
     text-decoration: none;
-    transition: color var(--transition), background-color var(--transition), border-color var(--transition), transform var(--transition);
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 a:focus-visible {
-    outline: 3px solid var(--accent-soft);
-    outline-offset: 2px;
+    outline: 2px solid var(--accent-bright);
+    outline-offset: 3px;
 }
 
 /* =========================================
@@ -63,8 +70,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
+    background-color: rgba(9, 9, 11, 0.88);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 1rem max(1.5rem, calc((100% - var(--max-width)) / 2));
     display: flex;
@@ -74,26 +81,31 @@ header {
 }
 
 .logo a {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.35rem;
+    font-weight: 800;
     color: var(--text-main);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+}
+
+.logo a::after {
+    content: ".";
+    color: var(--accent-bright);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.45rem;
 }
 
 nav a {
     display: inline-block;
-    padding: 0.45rem 0.85rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 8px;
     color: var(--text-muted);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.94rem;
 }
 
 nav a:hover {
@@ -102,9 +114,10 @@ nav a:hover {
 }
 
 nav a[aria-current="page"] {
-    color: var(--accent);
-    background-color: var(--accent-soft);
+    color: #ffffff;
+    background-color: var(--accent);
     font-weight: 600;
+    box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 /* =========================================
@@ -114,7 +127,7 @@ main {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 3rem 1.5rem 4rem;
+    padding: 3rem 1.5rem 4.5rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -123,11 +136,23 @@ main {
 
 section > h2 {
     font-size: 1.6rem;
+    font-weight: 700;
     color: var(--text-main);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     margin-bottom: 1.5rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+section > h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 56px;
+    height: 2px;
+    background-color: var(--accent-bright);
 }
 
 p {
@@ -143,18 +168,19 @@ p {
     grid-template-rows: auto auto;
     gap: 0.85rem 3rem;
     align-items: center;
-    background-color: var(--bg-surface);
+    background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.16), transparent 55%), var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 2.75rem;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
 }
 
 #about-intro h1 {
     grid-column: 1;
     grid-row: 1;
     align-self: end;
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: clamp(2rem, 4vw, 2.85rem);
+    font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.03em;
     color: var(--text-main);
@@ -174,8 +200,8 @@ p {
     height: 220px;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid var(--accent-soft);
-    box-shadow: var(--shadow-md);
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 6px var(--accent-soft), var(--shadow-md);
 }
 
 /* =========================================
@@ -196,17 +222,18 @@ p {
 #biography a[download] {
     display: inline-block;
     margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.78rem 1.55rem;
     border-radius: 8px;
     background-color: var(--accent);
     color: #ffffff;
     font-weight: 600;
     font-size: 0.95rem;
+    box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 #biography a[download]:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-1px);
+    background-color: var(--accent-bright);
+    transform: translateY(-2px);
 }
 
 /* =========================================
@@ -230,9 +257,14 @@ p {
     border-radius: var(--radius);
     padding: 1.75rem 2rem;
     box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition), transform var(--transition);
 }
 
-/* Timeline dot */
+.experience-item:hover {
+    border-color: rgba(239, 68, 68, 0.55);
+    transform: translateX(3px);
+}
+
 .experience-item::before {
     content: "";
     position: absolute;
@@ -241,12 +273,12 @@ p {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-color: var(--accent);
-    border: 3px solid var(--accent-soft);
+    background-color: var(--accent-bright);
+    border: 3px solid var(--bg-main);
+    box-shadow: 0 0 0 3px var(--accent-soft);
     transform: translateX(-50%);
 }
 
-/* Timeline vertical connector line */
 .experience-item::after {
     content: "";
     position: absolute;
@@ -269,13 +301,13 @@ p {
 }
 
 .experience-item p strong {
-    color: var(--text-main);
+    color: #ffffff;
 }
 
 .experience-item p:has(time) {
     font-size: 0.9rem;
-    color: var(--accent);
-    font-weight: 500;
+    color: var(--accent-bright);
+    font-weight: 600;
     margin-top: 0.15rem;
 }
 
@@ -311,6 +343,12 @@ p {
     border-radius: var(--radius);
     padding: 1.6rem 1.75rem;
     box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.education-item:hover,
+.certification-item:hover {
+    transform: translateY(-3px);
 }
 
 .education-item h3,
@@ -322,7 +360,7 @@ p {
 
 .education-item p strong,
 .certification-item p strong {
-    color: var(--text-main);
+    color: #ffffff;
 }
 
 .education-item p + p,
@@ -370,18 +408,24 @@ p {
     background-color: var(--bg-subtle);
     color: var(--text-main);
     border: 1px solid var(--border);
-    padding: 0.35rem 0.85rem;
+    padding: 0.38rem 0.9rem;
     border-radius: 999px;
     font-size: 0.875rem;
     font-weight: 500;
+    transition: border-color var(--transition), background-color var(--transition);
+}
+
+.skill-group li:hover {
+    border-color: var(--accent-bright);
+    background-color: var(--accent-soft);
 }
 
 /* =========================================
    9. Call to Action Banner
    ========================================= */
 #about-cta {
-    background-color: var(--text-main);
-    color: #ffffff;
+    background: linear-gradient(135deg, #121215 0%, #240c0f 100%);
+    border: 1px solid rgba(220, 38, 38, 0.4);
     border-radius: var(--radius);
     padding: 2.75rem 2rem;
     text-align: center;
@@ -395,8 +439,12 @@ p {
     padding-bottom: 0;
 }
 
+#about-cta h2::after {
+    display: none;
+}
+
 #about-cta p {
-    color: #cbd5e1;
+    color: #d4d4d8;
     max-width: 55ch;
     margin: 0 auto;
 }
@@ -404,30 +452,30 @@ p {
 #about-cta a {
     display: inline-block;
     margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.78rem 1.55rem;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.95rem;
     background-color: var(--accent);
     color: #ffffff;
     border: 1px solid transparent;
+    box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 #about-cta a:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-1px);
+    background-color: var(--accent-bright);
+    transform: translateY(-2px);
 }
 
 #about-cta a + a {
     margin-left: 0.75rem;
-    background-color: transparent;
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: #ffffff;
+    color: #09090b;
+    box-shadow: none;
 }
 
 #about-cta a + a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
+    background-color: #e4e4e7;
 }
 
 /* =========================================
@@ -456,7 +504,7 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--accent);
+    color: var(--accent-bright);
 }
 
 footer p {
@@ -470,6 +518,11 @@ footer p {
     header {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    main {
+        padding: 2rem 1.25rem 3rem;
+        gap: 2.5rem;
     }
 
     #about-intro {
