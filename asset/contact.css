@@ -2,20 +2,21 @@
    1. CSS Variables & Base Reset
    ========================================= */
 :root {
-    --bg-main: #f8fafc;
-    --bg-surface: #ffffff;
-    --bg-subtle: #f1f5f9;
-    --text-main: #0f172a;
-    --text-muted: #475569;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --accent-soft: #dbeafe;
-    --border: #e2e8f0;
-    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
-    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
-    --radius: 12px;
-    --max-width: 1000px;
-    --transition: 0.2s ease;
+    --bg-main: #09090b;
+    --bg-surface: #121215;
+    --bg-subtle: #1c1c21;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --accent: #dc2626;
+    --accent-bright: #ef4444;
+    --accent-soft: rgba(220, 38, 38, 0.15);
+    --accent-glow: rgba(220, 38, 38, 0.25);
+    --border: #27272a;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.45);
+    --shadow-md: 0 20px 45px -12px rgba(0, 0, 0, 0.75);
+    --radius: 14px;
+    --max-width: 1040px;
+    --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,
@@ -28,6 +29,12 @@
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+::selection {
+    background-color: var(--accent);
+    color: #ffffff;
 }
 
 body {
@@ -41,9 +48,9 @@ body {
 }
 
 a {
-    color: var(--accent);
+    color: var(--accent-bright);
     text-decoration: none;
-    transition: color var(--transition), background-color var(--transition), border-color var(--transition), transform var(--transition);
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 a:focus-visible,
@@ -51,8 +58,8 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 3px solid var(--accent-soft);
-    outline-offset: 2px;
+    outline: 2px solid var(--accent-bright);
+    outline-offset: 3px;
 }
 
 /* =========================================
@@ -62,8 +69,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
+    background-color: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 1rem max(1.5rem, calc((100% - var(--max-width)) / 2));
     display: flex;
@@ -73,26 +80,31 @@ header {
 }
 
 .logo a {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.35rem;
+    font-weight: 800;
     color: var(--text-main);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+}
+
+.logo a::after {
+    content: ".";
+    color: var(--accent-bright);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 nav a {
     display: inline-block;
-    padding: 0.45rem 0.85rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 8px;
     color: var(--text-muted);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.94rem;
 }
 
 nav a:hover {
@@ -101,9 +113,10 @@ nav a:hover {
 }
 
 nav a[aria-current="page"] {
-    color: var(--accent);
-    background-color: var(--accent-soft);
+    color: #ffffff;
+    background-color: var(--accent);
     font-weight: 600;
+    box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 /* =========================================
@@ -113,7 +126,7 @@ main {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 3rem 1.5rem 4rem;
+    padding: 3rem 1.5rem 4.5rem;
     flex: 1;
     display: grid;
     grid-template-columns: 1fr 1.35fr;
@@ -130,15 +143,16 @@ p {
    ========================================= */
 #contact-intro {
     grid-column: 1 / -1;
-    background-color: var(--bg-surface);
+    background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.16), transparent 55%), var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 2.5rem;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
 }
 
 #contact-intro h1 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: clamp(2rem, 4vw, 2.85rem);
+    font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.03em;
     color: var(--text-main);
@@ -167,10 +181,23 @@ p {
 #contact-details h2,
 #contact-form h2 {
     font-size: 1.45rem;
+    font-weight: 700;
     color: var(--text-main);
     letter-spacing: -0.02em;
-    padding-bottom: 0.6rem;
-    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+#contact-details h2::after,
+#contact-form h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 48px;
+    height: 2px;
+    background-color: var(--accent-bright);
 }
 
 address {
@@ -183,6 +210,7 @@ address {
 address p {
     background-color: var(--bg-subtle);
     border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
     border-radius: 10px;
     padding: 0.85rem 1rem;
     display: flex;
@@ -191,25 +219,22 @@ address p {
 }
 
 address strong {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    color: var(--accent-bright);
 }
 
 address span,
 address a {
     font-size: 0.98rem;
     font-weight: 500;
-    color: var(--text-main);
+    color: #ffffff;
     word-break: break-word;
 }
 
-address a {
-    color: var(--accent);
-}
-
 address a:hover {
+    color: var(--accent-bright);
     text-decoration: underline;
 }
 
@@ -228,20 +253,21 @@ address a:hover {
 
 .social-profiles a {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.05rem;
     border-radius: 999px;
     background-color: var(--bg-subtle);
     border: 1px solid var(--border);
-    color: var(--text-main);
+    color: #ffffff;
     font-size: 0.9rem;
     font-weight: 600;
 }
 
 .social-profiles a:hover {
-    background-color: var(--accent-soft);
-    border-color: var(--accent-soft);
-    color: var(--accent);
-    transform: translateY(-1px);
+    background-color: var(--accent);
+    border-color: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 /* =========================================
@@ -256,7 +282,7 @@ address a:hover {
 }
 
 #contact-form > p {
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
 }
@@ -270,7 +296,7 @@ form {
 form div {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.45rem;
 }
 
 label {
@@ -283,14 +309,14 @@ input,
 select,
 textarea {
     width: 100%;
-    padding: 0.75rem 0.95rem;
+    padding: 0.78rem 0.95rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     font-family: inherit;
     font-size: 0.98rem;
     color: var(--text-main);
     background-color: var(--bg-main);
-    transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 textarea {
@@ -300,21 +326,20 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-    color: #94a3b8;
+    color: #52525b;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
     outline: none;
-    border-color: var(--accent);
-    background-color: var(--bg-surface);
+    border-color: var(--accent-bright);
     box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 button[type="submit"] {
     margin-top: 0.4rem;
-    padding: 0.85rem 1.5rem;
+    padding: 0.88rem 1.5rem;
     border: none;
     border-radius: 8px;
     background-color: var(--accent);
@@ -323,12 +348,13 @@ button[type="submit"] {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 6px 20px var(--accent-glow);
     transition: background-color var(--transition), transform var(--transition);
 }
 
 button[type="submit"]:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-1px);
+    background-color: var(--accent-bright);
+    transform: translateY(-2px);
 }
 
 button[type="submit"]:active {
@@ -361,7 +387,7 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--accent);
+    color: var(--accent-bright);
 }
 
 footer p {
