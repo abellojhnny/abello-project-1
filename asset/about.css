@@ -1,0 +1,519 @@
+/* =========================================
+   1. CSS Variables & Base Reset
+   ========================================= */
+:root {
+    --bg-main: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f1f5f9;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-soft: #dbeafe;
+    --border: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 12px 28px -6px rgba(15, 23, 42, 0.1);
+    --radius: 12px;
+    --max-width: 1000px;
+    --transition: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--accent-soft);
+    outline-offset: 2px;
+}
+
+/* =========================================
+   2. Header & Navigation
+   ========================================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem max(1.5rem, calc((100% - var(--max-width)) / 2));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo a {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: var(--text-main);
+    background-color: var(--bg-subtle);
+}
+
+nav a[aria-current="page"] {
+    color: var(--accent);
+    background-color: var(--accent-soft);
+    font-weight: 600;
+}
+
+/* =========================================
+   3. Main Layout & Section Headings
+   ========================================= */
+main {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+section > h2 {
+    font-size: 1.6rem;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--border);
+}
+
+p {
+    color: var(--text-muted);
+}
+
+/* =========================================
+   4. About Intro Section
+   ========================================= */
+#about-intro {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    grid-template-rows: auto auto;
+    gap: 0.85rem 3rem;
+    align-items: center;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+#about-intro h1 {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--text-main);
+}
+
+#about-intro p {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    font-size: 1.125rem;
+}
+
+#about-intro img {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--accent-soft);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   5. Biography / My Story Section
+   ========================================= */
+#biography {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem 2.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+#biography p + p {
+    margin-top: 1rem;
+}
+
+#biography a[download] {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+#biography a[download]:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   6. Experience Timeline Section
+   ========================================= */
+#experience {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#experience > h2 {
+    margin-bottom: 0.25rem;
+}
+
+.experience-item {
+    position: relative;
+    margin-left: 1.5rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Timeline dot */
+.experience-item::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 2rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    border: 3px solid var(--accent-soft);
+    transform: translateX(-50%);
+}
+
+/* Timeline vertical connector line */
+.experience-item::after {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 2.9rem;
+    bottom: -2rem;
+    width: 2px;
+    background-color: var(--border);
+    transform: translateX(-50%);
+}
+
+.experience-item:last-of-type::after {
+    display: none;
+}
+
+.experience-item h3 {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.experience-item p strong {
+    color: var(--text-main);
+}
+
+.experience-item p:has(time) {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 0.15rem;
+}
+
+.experience-item ul {
+    margin-top: 1rem;
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+}
+
+.experience-item li + li {
+    margin-top: 0.45rem;
+}
+
+/* =========================================
+   7. Education & Certifications Section
+   ========================================= */
+#education {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+#education > h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+}
+
+.education-item,
+.certification-item {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.education-item h3,
+.certification-item h3 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-bottom: 0.35rem;
+}
+
+.education-item p strong,
+.certification-item p strong {
+    color: var(--text-main);
+}
+
+.education-item p + p,
+.certification-item p + p {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   8. Tools & Technologies Section
+   ========================================= */
+#skills-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+#skills-overview > h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+}
+
+.skill-group {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.skill-group h3 {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.skill-group ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-group li {
+    background-color: var(--bg-subtle);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   9. Call to Action Banner
+   ========================================= */
+#about-cta {
+    background-color: var(--text-main);
+    color: #ffffff;
+    border-radius: var(--radius);
+    padding: 2.75rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+#about-cta h2 {
+    color: #ffffff;
+    border-bottom: none;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0;
+}
+
+#about-cta p {
+    color: #cbd5e1;
+    max-width: 55ch;
+    margin: 0 auto;
+}
+
+#about-cta a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background-color: var(--accent);
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+
+#about-cta a:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+#about-cta a + a {
+    margin-left: 0.75rem;
+    background-color: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+#about-cta a + a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+/* =========================================
+   10. Footer
+   ========================================= */
+footer {
+    border-top: 1px solid var(--border);
+    background-color: var(--bg-surface);
+    padding: 2rem max(1.5rem, calc((100% - var(--max-width)) / 2));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   11. Responsive Adjustments (Mobile)
+   ========================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #about-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.25rem;
+    }
+
+    #about-intro h1,
+    #about-intro p,
+    #about-intro img {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: center;
+    }
+
+    #about-intro img {
+        width: 170px;
+        height: 170px;
+        order: -1;
+    }
+
+    #biography {
+        padding: 1.5rem;
+    }
+
+    .experience-item {
+        margin-left: 1rem;
+        padding: 1.5rem;
+    }
+
+    .experience-item::before,
+    .experience-item::after {
+        left: -1rem;
+    }
+
+    #about-cta a + a {
+        margin-left: 0;
+        margin-top: 0.75rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
