@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the portfolio projects, case studies, and code repositories of [Your Name].">
+    <title>Projects | [Your Name]</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html">[Your Name]</a>
+        </div>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Page Intro & Category Filters -->
+        <section id="projects-intro">
+            <h1>Projects</h1>
+            <p>
+                [A brief introduction to the work you've built—personal projects, 
+                client work, or open-source contributions.]
+            </p>
+
+            <!-- Optional Filter Controls (ready for JavaScript later) -->
+            <div class="project-filters" role="group" aria-label="Filter projects by category">
+                <button type="button" data-filter="all">All</button>
+                <button type="button" data-filter="web">Web Apps</button>
+                <button type="button" data-filter="design">UI / Design</button>
+                <button type="button" data-filter="other">Other</button>
+            </div>
+        </section>
+
+        <!-- Featured Project / Case Study Section -->
+        <section id="featured-project">
+            <h2>Featured Project</h2>
+
+            <article class="project-featured" data-category="web">
+                <img src="assets/featured-project.jpg" alt="Preview of [Featured Project Title]">
+                <div class="project-details">
+                    <p><strong>Category:</strong> [Web App] &mdash; <time datetime="2026">2026</time></p>
+                    <h3>[Featured Project Title]</h3>
+                    <p>
+                        [Describe the problem the project solves, your role, and the 
+                        outcome or impact.]
+                    </p>
+
+                    <h4>Technologies Used</h4>
+                    <ul aria-label="Technologies used in Featured Project">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>[Framework / API]</li>
+                    </ul>
+
+                    <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- All Projects Grid / List Section -->
+        <section id="all-projects">
+            <h2>All Projects</h2>
+
+            <article class="project-card" data-category="web">
+                <img src="assets/project-1.jpg" alt="Screenshot of [Project Title 1]">
+                <p><span>[Category]</span> &mdash; <time datetime="2026">2026</time></p>
+                <h3>[Project Title 1]</h3>
+                <p>[Brief description of what the project does and key features built.]</p>
+                <ul aria-label="Technologies used">
+                    <li>[Tech 1]</li>
+                    <li>[Tech 2]</li>
+                    <li>[Tech 3]</li>
+                </ul>
+                <div class="project-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="design">
+                <img src="assets/project-2.jpg" alt="Screenshot of [Project Title 2]">
+                <p><span>[Category]</span> &mdash; <time datetime="2025">2025</time></p>
+                <h3>[Project Title 2]</h3>
+                <p>[Brief description of what the project does and key features built.]</p>
+                <ul aria-label="Technologies used">
+                    <li>[Tech 1]</li>
+                    <li>[Tech 2]</li>
+                    <li>[Tech 3]</li>
+                </ul>
+                <div class="project-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="other">
+                <img src="assets/project-3.jpg" alt="Screenshot of [Project Title 3]">
+                <p><span>[Category]</span> &mdash; <time datetime="2025">2025</time></p>
+                <h3>[Project Title 3]</h3>
+                <p>[Brief description of what the project does and key features built.]</p>
+                <ul aria-label="Technologies used">
+                    <li>[Tech 1]</li>
+                    <li>[Tech 2]</li>
+                    <li>[Tech 3]</li>
+                </ul>
+                <div class="project-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="projects-cta">
+            <h2>Have a project in mind?</h2>
+            <p>[Invite visitors to check out more code on GitHub or get in touch to work together.]</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">View More on GitHub</a>
+            <a href="contact.html">Contact Me</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <ul aria-label="Social Links">
+            <li><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="mailto:youremail@example.com">Email</a></li>
+        </ul>
+        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
