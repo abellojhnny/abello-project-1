@@ -1,0 +1,396 @@
+/* =========================================
+   1. CSS Variables & Base Reset
+   ========================================= */
+:root {
+    --bg-main: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f1f5f9;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-soft: #dbeafe;
+    --border: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+    --radius: 12px;
+    --max-width: 1000px;
+    --transition: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition), background-color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--accent-soft);
+    outline-offset: 2px;
+}
+
+/* =========================================
+   2. Header & Navigation
+   ========================================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem max(1.5rem, calc((100% - var(--max-width)) / 2));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo a {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: var(--text-main);
+    background-color: var(--bg-subtle);
+}
+
+nav a[aria-current="page"] {
+    color: var(--accent);
+    background-color: var(--accent-soft);
+    font-weight: 600;
+}
+
+/* =========================================
+   3. Main Two-Column Contact Layout
+   ========================================= */
+main {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+/* =========================================
+   4. Contact Intro Banner
+   ========================================= */
+#contact-intro {
+    grid-column: 1 / -1;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+#contact-intro h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--text-main);
+    margin-bottom: 0.75rem;
+}
+
+#contact-intro p {
+    font-size: 1.08rem;
+    max-width: 68ch;
+}
+
+/* =========================================
+   5. Contact Details & Social Profiles Card
+   ========================================= */
+#contact-details {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+#contact-details h2,
+#contact-form h2 {
+    font-size: 1.45rem;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--border);
+}
+
+address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+address p {
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+address strong {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+address span,
+address a {
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: var(--text-main);
+    word-break: break-word;
+}
+
+address a {
+    color: var(--accent);
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
+.social-profiles h3 {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 0.85rem;
+}
+
+.social-profiles ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.social-profiles a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.social-profiles a:hover {
+    background-color: var(--accent-soft);
+    border-color: var(--accent-soft);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   6. Contact Form Card
+   ========================================= */
+#contact-form {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+#contact-form > p {
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background-color: var(--bg-surface);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+button[type="submit"] {
+    margin-top: 0.4rem;
+    padding: 0.85rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   7. Footer
+   ========================================= */
+footer {
+    border-top: 1px solid var(--border);
+    background-color: var(--bg-surface);
+    padding: 2rem max(1.5rem, calc((100% - var(--max-width)) / 2));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   8. Responsive Adjustments (Mobile & Tablet)
+   ========================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem 1.25rem 3rem;
+    }
+
+    #contact-intro,
+    #contact-details,
+    #contact-form {
+        padding: 1.5rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
